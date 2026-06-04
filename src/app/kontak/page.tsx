@@ -1,0 +1,55 @@
+import Breadcrumb from "@/components/Breadcrumb";
+import Button from "@/components/Button";
+import Card from "@/components/Card";
+import Section from "@/components/Section";
+
+export const metadata = { title: "Kontak" };
+
+const cards = [
+  ["Alamat", "Brabo, Kecamatan Tanggungharjo, Kabupaten Grobogan, Jawa Tengah."],
+  ["WhatsApp", "+62 800-0000-0000"],
+  ["Email", "info@annasriyah.sch.id"],
+] as const;
+
+export default function KontakPage() {
+  return (
+    <Section title="Kontak Kami" description="Hubungi Pondok Pesantren Annasriyah untuk informasi pendaftaran, program, dan konsultasi kebutuhan pendidikan santri.">
+      <Breadcrumb items={[{ label: "Beranda", href: "/" }, { label: "Kontak" }]} />
+      <div className="grid gap-5 lg:grid-cols-[0.9fr_1.1fr]">
+        <div className="space-y-5">
+          <Card className="p-6">
+            <h2 className="mb-4 text-2xl font-semibold">Alamat Lengkap</h2>
+            <p className="text-sm leading-8 text-[var(--muted-foreground)] md:text-base">
+              Pondok Pesantren Annasriyah, Brabo, Kecamatan Tanggungharjo, Kabupaten Grobogan, Jawa Tengah.
+            </p>
+            <div className="mt-5 flex flex-col gap-3 sm:flex-row">
+              <Button href="https://wa.me/6280000000000" className="!text-white" external>Hubungi WhatsApp</Button>
+              <Button href="https://portal.annasriyah.sch.id" external variant="secondary">Portal Wali Santri</Button>
+            </div>
+          </Card>
+
+          <div className="grid gap-4 md:grid-cols-3 lg:grid-cols-1">
+            {cards.map(([title, content]) => (
+              <Card key={title} className="p-5">
+                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--primary-dark)]">{title}</p>
+                <p className="mt-3 text-sm leading-7">{content}</p>
+              </Card>
+            ))}
+          </div>
+        </div>
+
+        <Card className="overflow-hidden p-3">
+          <div className="grid-pattern flex min-h-[440px] items-center justify-center rounded-[28px] bg-[linear-gradient(180deg,rgba(255,255,255,0.7),rgba(232,246,236,0.9))] p-6 text-center">
+            <div className="max-w-md space-y-3">
+              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--primary-dark)]">Placeholder Peta</p>
+              <h2 className="text-2xl font-semibold">Lokasi Pondok Pesantren Annasriyah</h2>
+              <p className="text-sm leading-7 text-[var(--muted-foreground)]">
+                Area ini dapat diganti dengan embed Google Maps atau peta interaktif ketika data koordinat final sudah tersedia.
+              </p>
+            </div>
+          </div>
+        </Card>
+      </div>
+    </Section>
+  );
+}

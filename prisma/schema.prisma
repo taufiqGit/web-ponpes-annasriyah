@@ -1,0 +1,128 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model AdminUser {
+  id           String   @id @default(cuid())
+  email        String   @unique
+  username     String   @unique
+  passwordHash String
+  role         String   @default("SUPERADMIN")
+  createdAt    DateTime @default(now())
+}
+
+enum CategoryType {
+  NEWS
+  ACTIVITY
+  GALLERY
+}
+
+enum PublishStatus {
+  DRAFT
+  PUBLISHED
+}
+
+enum AgendaBadge {
+  Pengajian
+  Olahraga
+  Lomba
+  Kunjungan
+  Lainnya
+}
+
+model Category {
+  id         String       @id @default(cuid())
+  name       String
+  slug       String       @unique
+  type       CategoryType
+  news       News[]
+  activities Activity[]
+}
+
+model News {
+  id          String        @id @default(cuid())
+  title       String
+  slug        String        @unique
+  excerpt     String
+  content     Json
+  coverUrl    String?
+  status      PublishStatus @default(DRAFT)
+  publishedAt DateTime?
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+  categoryId  String?
+  category    Category?     @relation(fields: [categoryId], references: [id])
+}
+
+model Activity {
+  id          String        @id @default(cuid())
+  title       String
+  slug        String        @unique
+  excerpt     String
+  content     Json
+  coverUrl    String?
+  eventDate   DateTime
+  location    String
+  status      PublishStatus @default(DRAFT)
+  publishedAt DateTime?
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+  categoryId  String?
+  category    Category?     @relation(fields: [categoryId], references: [id])
+}
+
+model GalleryAlbum {
+  id          String         @id @default(cuid())
+  title       String
+  description String?
+  status      PublishStatus  @default(DRAFT)
+  publishedAt DateTime?
+  eventDate   DateTime?
+  createdAt   DateTime       @default(now())
+  updatedAt   DateTime       @updatedAt
+  images      GalleryImage[]
+}
+
+model GalleryImage {
+  id          String       @id @default(cuid())
+  albumId     String
+  album       GalleryAlbum @relation(fields: [albumId], references: [id], onDelete: Cascade)
+  imageUrl    String
+  storagePath String?
+  caption     String?
+  takenAt     DateTime?
+  sortOrder   Int          @default(0)
+  createdAt   DateTime     @default(now())
+  updatedAt   DateTime     @updatedAt
+
+  @@index([albumId, sortOrder])
+}
+
+model Settings {
+  id         String   @id @default("SINGLETON")
+  name       String   @default("Pondok Pesantren An-Nashriyyah")
+  address    String   @default("")
+  whatsapp   String   @default("")
+  linkPPDB   String   @default("")
+  linkPortal String   @default("")
+  updatedAt  DateTime @updatedAt
+}
+
+model Agenda {
+  id          String        @id @default(cuid())
+  day         String
+  date        DateTime?
+  startTime   String
+  endTime     String
+  title       String
+  description String
+  badge       AgendaBadge
+  status      PublishStatus @default(PUBLISHED)
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+}
