@@ -7,6 +7,8 @@ import TimelineStepper from "@/components/TimelineStepper";
 import { mapPublicNewsItem } from "@/lib/public-news";
 import prisma from "@/lib/prisma";
 
+export const dynamic = "force-dynamic";
+
 const trustBar = [
   "Lingkungan belajar teduh dan tertata",
   "Pendampingan adab, akademik, dan diniyah",

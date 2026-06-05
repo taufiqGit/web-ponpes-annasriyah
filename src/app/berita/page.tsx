@@ -4,6 +4,8 @@ import Section from "@/components/Section";
 import { mapPublicNewsItem } from "@/lib/public-news";
 import prisma from "@/lib/prisma";
 
+export const dynamic = "force-dynamic";
+
 export const metadata = { title: "Berita" };
 
 export default async function BeritaPage() {

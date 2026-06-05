@@ -5,6 +5,8 @@ import Card from "@/components/Card";
 import Section from "@/components/Section";
 import prisma from "@/lib/prisma";
 
+export const dynamic = "force-dynamic";
+
 export const metadata = { title: "Galeri" };
 
 function formatDate(value: Date | null) {

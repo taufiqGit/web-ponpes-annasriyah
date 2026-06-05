@@ -6,6 +6,8 @@ import Section from "@/components/Section";
 import { renderRichContent } from "@/lib/public-news";
 import prisma from "@/lib/prisma";
 
+export const dynamic = "force-dynamic";
+
 export async function generateMetadata({
   params,
 }: {
