@@ -7,6 +7,7 @@ const supabaseHostname = supabaseUrl
   .replace(/\/.*$/, "");
 
 const nextConfig: NextConfig = {
+  output: "standalone",
   reactCompiler: true,
   images: {
     remotePatterns: supabaseHostname
