@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function WhatsAppFloat() {
   const text = encodeURIComponent(
-    "Assalamu'alaikum, saya ingin mendapatkan informasi Pondok Pesantren Annasriyah."
+    ""
   );
 
   return (
