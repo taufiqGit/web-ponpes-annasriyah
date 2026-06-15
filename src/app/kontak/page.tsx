@@ -7,8 +7,8 @@ export const metadata = { title: "Kontak" };
 
 const cards = [
   ["Alamat", "Brabo, Kecamatan Tanggungharjo, Kabupaten Grobogan, Jawa Tengah."],
-  ["WhatsApp", "+62 800-0000-0000"],
-  ["Email", "info@annasriyah.sch.id"],
+  ["WhatsApp", "+62 857-9610-6086"],
+  ["Email", "ponpes.annashriyyah@gmail.com"],
 ] as const;
 
 export default function KontakPage() {
@@ -23,8 +23,8 @@ export default function KontakPage() {
               Pondok Pesantren Annasriyah, Brabo, Kecamatan Tanggungharjo, Kabupaten Grobogan, Jawa Tengah.
             </p>
             <div className="mt-5 flex flex-col gap-3 sm:flex-row">
-              <Button href="https://wa.me/6280000000000" className="!text-white" external>Hubungi WhatsApp</Button>
-              <Button href="https://portal.annasriyah.sch.id" external variant="secondary">Portal Wali Santri</Button>
+              <Button href="https://wa.me/6285796106086" className="!text-white" external>Hubungi WhatsApp</Button>
+              {/* <Button href="https://portal.annasriyah.sch.id" external variant="secondary">Portal Wali Santri</Button> */}
             </div>
           </Card>
 
@@ -43,9 +43,18 @@ export default function KontakPage() {
             <div className="max-w-md space-y-3">
               <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--primary-dark)]">Placeholder Peta</p>
               <h2 className="text-2xl font-semibold">Lokasi Pondok Pesantren Annasriyah</h2>
-              <p className="text-sm leading-7 text-[var(--muted-foreground)]">
+              {/* <p className="text-sm leading-7 text-[var(--muted-foreground)]">
                 Area ini dapat diganti dengan embed Google Maps atau peta interaktif ketika data koordinat final sudah tersedia.
-              </p>
+              </p> */}
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d789.259919209218!2d110.57923901886771!3d-7.088681274027602!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7091666547bd9b%3A0x9077f9e0f37e1dc6!2sPonpes%20An%20Nashriyyah!5e1!3m2!1sen!2sid!4v1781518051652!5m2!1sen!2sid"
+                width="600"
+                height="450"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              />
             </div>
           </div>
         </Card>

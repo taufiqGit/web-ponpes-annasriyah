@@ -7,11 +7,11 @@ import { useState } from "react";
 import Button from "@/components/Button";
 
 const items = [
-  ["/", "Beranda"],
-  ["/profil", "Profil"],
-  ["/jenjang", "Jenjang"],
-  ["/program", "Program"],
-  ["/ppdb", "PPDB"],
+  // ["/", "Beranda"],
+  // ["/profil", "Profil"],
+  // ["/jenjang", "Jenjang"],
+  // ["/program", "Program"],
+  // ["/ppdb", "PPDB"],
   ["/berita", "Berita"],
   ["/galeri", "Galeri"],
   ["/kontak", "Kontak"],
@@ -62,11 +62,11 @@ export default function Navbar() {
             ))}
           </nav>
 
-          <div className="hidden md:block">
+          {/* <div className="hidden md:block">
             <Button href="https://ppdb.annasriyah.sch.id" external className="!text-white">
               Daftar PPDB Online
             </Button>
-          </div>
+          </div> */}
         </div>
 
         {open ? (
@@ -84,9 +84,9 @@ export default function Navbar() {
                   {label}
                 </Link>
               ))}
-              <Button href="https://ppdb.annasriyah.sch.id" external className="mt-2 w-full">
+              {/* <Button href="https://ppdb.annasriyah.sch.id" external className="mt-2 w-full">
                 Daftar PPDB Online
-              </Button>
+              </Button> */}
             </nav>
           </div>
         ) : null}

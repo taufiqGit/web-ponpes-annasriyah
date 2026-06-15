@@ -13,7 +13,7 @@ export default function SiteShell({ children }: { children: React.ReactNode }) {
     <>
       <Navbar />
       <main>{children}</main>
-      <Footer />
+      {/* <Footer /> */}
       <WhatsAppFloat />
     </>
   );

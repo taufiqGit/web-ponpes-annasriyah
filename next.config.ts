@@ -9,6 +9,19 @@ const supabaseHostname = supabaseUrl
 const nextConfig: NextConfig = {
   output: "standalone",
   reactCompiler: true,
+  async headers() {
+    return [
+      {
+        source: "/:path*",
+        headers: [
+          {
+            key: "Content-Security-Policy",
+            value: "frame-src 'self' https://www.google.com https://maps.google.com;",
+          },
+        ],
+      },
+    ];
+  },
   images: {
     remotePatterns: supabaseHostname
       ? [

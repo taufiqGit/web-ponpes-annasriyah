@@ -34,7 +34,7 @@ export default function Footer() {
             </div>
 
             <div>
-              <h4 className="mb-4 text-sm font-semibold uppercase tracking-[0.18em] text-[var(--primary-dark)]">
+              {/* <h4 className="mb-4 text-sm font-semibold uppercase tracking-[0.18em] text-[var(--primary-dark)]">
                 Navigasi
               </h4>
               <div className="grid gap-2 text-sm text-[var(--muted-foreground)]">
@@ -43,11 +43,11 @@ export default function Footer() {
                     {label}
                   </Link>
                 ))}
-              </div>
+              </div> */}
             </div>
 
             <div>
-              <h4 className="mb-4 text-sm font-semibold uppercase tracking-[0.18em] text-[var(--primary-dark)]">
+              {/* <h4 className="mb-4 text-sm font-semibold uppercase tracking-[0.18em] text-[var(--primary-dark)]">
                 Tautan Penting
               </h4>
               <div className="grid gap-3 text-sm">
@@ -67,7 +67,7 @@ export default function Footer() {
                 >
                   Portal Wali Santri
                 </a>
-              </div>
+              </div> */}
             </div>
           </div>
 
